@@ -1,0 +1,80 @@
+/* =========================================================
+   GLOBAL STYLES
+   Project: Ansh Portfolio
+   ========================================================= */
+
+html {
+  background: var(--color-bg);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+
+/* Container */
+
+.container {
+  width: min(100% - (2 * var(--container-padding)), var(--container-width));
+  margin-inline: auto;
+}
+
+/* Sections */
+
+section {
+  padding: var(--section-spacing) 0;
+  position: relative;
+}
+
+/* Images */
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Buttons */
+
+button {
+  transition: var(--transition-normal);
+}
+
+/* Links */
+
+a {
+  transition: var(--transition-fast);
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Focus */
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+/* Text Selection */
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-text);
+}

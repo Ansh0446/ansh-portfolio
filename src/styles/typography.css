@@ -1,0 +1,63 @@
+/* =========================================================
+   TYPOGRAPHY
+   Project: Ansh Portfolio
+   ========================================================= */
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-normal);
+  color: var(--color-text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-size: var(--fs-display);
+}
+
+h2 {
+  font-size: var(--fs-h1);
+}
+
+h3 {
+  font-size: var(--fs-h2);
+}
+
+h4 {
+  font-size: var(--fs-h3);
+}
+
+p {
+  color: var(--color-text-muted);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+}
+
+small {
+  font-size: var(--fs-small);
+}
+
+code,
+pre {
+  font-family: var(--font-mono);
+}
+
+strong {
+  font-weight: var(--fw-semibold);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-text);
+}

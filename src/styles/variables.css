@@ -1,0 +1,121 @@
+/* =========================================================
+   DESIGN TOKENS
+   Project: Ansh Portfolio
+   ========================================================= */
+
+:root {
+  /* ========================================
+     COLORS
+     ======================================== */
+
+  --color-bg: #09090b;
+  --color-surface: #111114;
+  --color-surface-alt: #18181b;
+
+  --color-text: #fafafa;
+  --color-text-muted: #a1a1aa;
+
+  --color-border: rgba(255, 255, 255, 0.08);
+
+  --color-accent: #7c3aed;
+  --color-accent-hover: #8b5cf6;
+
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+
+  /* ========================================
+     TYPOGRAPHY
+     ======================================== */
+
+  --font-primary: "Geist", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --fs-display: clamp(3.5rem, 8vw, 6rem);
+  --fs-h1: clamp(2.5rem, 5vw, 4rem);
+  --fs-h2: clamp(2rem, 4vw, 3rem);
+  --fs-h3: 1.5rem;
+
+  --fs-body-lg: 1.125rem;
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-caption: 0.75rem;
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --lh-tight: 1.1;
+  --lh-normal: 1.6;
+
+  /* ========================================
+     SPACING
+     ======================================== */
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+
+  /* ========================================
+     LAYOUT
+     ======================================== */
+
+  --container-width: 1200px;
+  --container-padding: 1.5rem;
+
+  --section-spacing: 8rem;
+
+  /* ========================================
+     BORDER RADIUS
+     ======================================== */
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 999px;
+
+  /* ========================================
+     SHADOWS
+     ======================================== */
+
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.35);
+
+  /* ========================================
+     GLASS EFFECT
+     ======================================== */
+
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: 18px;
+
+  /* ========================================
+     TRANSITIONS
+     ======================================== */
+
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+
+  /* ========================================
+     Z-INDEX
+     ======================================== */
+
+  --z-background: -1;
+  --z-default: 1;
+  --z-navbar: 100;
+  --z-cursor: 500;
+  --z-loader: 999;
+  --z-modal: 1000;
+}

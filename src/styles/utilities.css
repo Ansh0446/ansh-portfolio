@@ -1,0 +1,75 @@
+/* =========================================================
+   UTILITIES
+   Project: Ansh Portfolio
+   ========================================================= */
+
+/* Display */
+
+.hidden {
+  display: none !important;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+/* Alignment */
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+/* Text */
+
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.gradient-text {
+  background: linear-gradient(
+    135deg,
+    var(--color-text),
+    var(--color-accent)
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glass */
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+
+  border: 1px solid var(--glass-border);
+}
+
+/* Border Radius */
+
+.rounded {
+  border-radius: var(--radius-lg);
+}
+
+/* Shadows */
+
+.shadow {
+  box-shadow: var(--shadow-md);
+}
