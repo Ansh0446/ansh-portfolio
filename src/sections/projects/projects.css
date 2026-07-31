@@ -1,0 +1,220 @@
+/* =====================================================
+   PROJECTS SECTION
+   File: src/sections/projects/projects.css
+
+   Editorial list of selected work: index, title,
+   description and tech tags paired with a refined image.
+   Entrance animation and scroll triggers are owned
+   entirely by JS/GSAP — this file only defines layout and
+   static visual styling.
+   ===================================================== */
+
+/* -----------------------------------------------------
+   Projects
+   ----------------------------------------------------- */
+.projects {
+  padding-block: var(--space-4xl);
+}
+
+/* -----------------------------------------------------
+   Container
+   ----------------------------------------------------- */
+.projects__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xl);
+
+  max-width: var(--container-lg);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-inline);
+}
+
+/* -----------------------------------------------------
+   Header
+   Eyebrow + title, consistent with other sections.
+   ----------------------------------------------------- */
+.projects__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+
+  max-width: var(--container-md);
+}
+
+.projects__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--accent-500);
+}
+
+.projects__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--color-text-primary);
+}
+
+/* -----------------------------------------------------
+   List
+   Stacked editorial entries, separated by a hairline
+   rule rather than boxed cards.
+   ----------------------------------------------------- */
+.projects__list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* -----------------------------------------------------
+   Project Card
+   Mobile-first: image above content. Rebuilt as a
+   two-column editorial row at desktop widths, alternating
+   image/content order for visual rhythm.
+   ----------------------------------------------------- */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+
+  padding-block: var(--space-2xl);
+  border-top: var(--border-width-hairline) solid var(--color-border);
+}
+
+.project-card:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+.project-card:last-child {
+  padding-bottom: 0;
+}
+
+/* -----------------------------------------------------
+   Content
+   ----------------------------------------------------- */
+.project-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.project-card__index {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--ls-wide);
+  color: var(--color-text-tertiary);
+}
+
+.project-card__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  color: var(--color-text-primary);
+}
+
+.project-card__description {
+  max-width: var(--container-sm);
+
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-secondary);
+}
+
+.project-card__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: var(--space-2xs);
+}
+
+.project-card__tech li {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+
+  padding-block: var(--space-3xs);
+  padding-inline: var(--space-xs);
+  border: var(--border-width-hairline) solid var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+/* -----------------------------------------------------
+   Image
+   Refined presentation: fixed aspect ratio, soft radius,
+   understated hover — a slight scale, no shadow, no
+   filter flourish.
+   ----------------------------------------------------- */
+.project-card__image {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+
+  background-color: var(--color-bg-surface);
+  border-radius: var(--radius-md);
+}
+
+.project-card__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: transform var(--dur-slower) var(--ease-emphasized);
+}
+
+.project-card:hover .project-card__image img {
+  transform: scale(1.03);
+}
+
+/* -----------------------------------------------------
+   Responsive
+   ----------------------------------------------------- */
+@media (min-width: 768px) {
+  .project-card {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-2xl);
+  }
+
+  .project-card__content {
+    flex: 1 1 45%;
+  }
+
+  .project-card__image {
+    flex: 1 1 55%;
+    aspect-ratio: 16 / 11;
+  }
+
+  /* Alternate image/content order for editorial rhythm. */
+  .project-card:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects {
+    padding-block: var(--space-5xl);
+  }
+
+  .projects__title {
+    font-size: var(--fs-3xl);
+  }
+
+  .project-card {
+    gap: var(--space-3xl);
+  }
+}

@@ -1,63 +1,199 @@
-/* =========================================================
-   TYPOGRAPHY
-   Project: Ansh Portfolio
-   ========================================================= */
+/* =====================================================
+   TYPOGRAPHY.CSS
+   Global typography only. No reset rules, no utilities,
+   no components, no section-specific styling, no theme
+   logic, no animations belong here.
+   ===================================================== */
 
-body {
-  font-family: var(--font-primary);
-  font-size: var(--fs-body);
-  font-weight: var(--fw-regular);
+/* -----------------------------------------------------
+   Base document typography
+   ----------------------------------------------------- */
+html {
+  font-family: var(--font-body);
+  font-size: 100%;
   line-height: var(--lh-normal);
-  color: var(--color-text);
 }
 
+body {
+  font-family: var(--font-body);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-base);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--ls-normal);
+  color: var(--color-text-primary);
+}
+
+/* -----------------------------------------------------
+   Headings
+   Display font, tight leading, tight tracking — scales
+   fluidly via the clamp()-based tokens in variables.css.
+   ----------------------------------------------------- */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+  font-family: var(--font-display);
   font-weight: var(--fw-bold);
   line-height: var(--lh-tight);
-  letter-spacing: -0.03em;
+  letter-spacing: var(--ls-tight);
+  color: var(--color-text-primary);
+  text-wrap: balance;
 }
 
 h1 {
-  font-size: var(--fs-display);
+  font-size: var(--fs-5xl);
+  letter-spacing: var(--ls-tighter);
 }
 
 h2 {
-  font-size: var(--fs-h1);
+  font-size: var(--fs-3xl);
+  letter-spacing: var(--ls-tighter);
 }
 
 h3 {
-  font-size: var(--fs-h2);
+  font-size: var(--fs-2xl);
 }
 
 h4 {
-  font-size: var(--fs-h3);
+  font-size: var(--fs-xl);
 }
 
+h5 {
+  font-size: var(--fs-lg);
+}
+
+h6 {
+  font-size: var(--fs-md);
+}
+
+/* -----------------------------------------------------
+   Paragraphs
+   ----------------------------------------------------- */
 p {
-  color: var(--color-text-muted);
-  font-size: var(--fs-body);
-  line-height: var(--lh-normal);
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-secondary);
+  text-wrap: pretty;
 }
 
-small {
-  font-size: var(--fs-small);
+/* -----------------------------------------------------
+   Links
+   Underline is intentionally omitted at this layer;
+   interactive/hover treatment belongs to component CSS.
+   ----------------------------------------------------- */
+a {
+  font-weight: var(--fw-medium);
+  text-underline-offset: 0.2em;
 }
 
-code,
-pre {
-  font-family: var(--font-mono);
-}
-
-strong {
+/* -----------------------------------------------------
+   Inline emphasis
+   ----------------------------------------------------- */
+strong,
+b {
   font-weight: var(--fw-semibold);
 }
 
+em,
+i {
+  font-style: italic;
+}
+
+small {
+  font-size: var(--fs-sm);
+  color: var(--color-text-tertiary);
+}
+
+mark {
+  background-color: var(--accent-500);
+  color: var(--accent-contrast);
+  padding-inline: 0.2em;
+  border-radius: var(--radius-xs);
+}
+
+sup,
+sub {
+  font-size: var(--fs-2xs);
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* -----------------------------------------------------
+   Code & preformatted text
+   ----------------------------------------------------- */
+code,
+kbd,
+samp {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  letter-spacing: var(--ls-normal);
+}
+
+pre {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-relaxed);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+pre code {
+  font-size: inherit;
+}
+
+/* -----------------------------------------------------
+   Blockquote
+   ----------------------------------------------------- */
+blockquote {
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-style: italic;
+  line-height: var(--lh-snug);
+  color: var(--color-text-secondary);
+  border-inline-start: var(--border-width-thick) solid var(--accent-500);
+  padding-inline-start: var(--space-md);
+}
+
+blockquote footer {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: var(--fs-sm);
+  color: var(--color-text-tertiary);
+}
+
+/* -----------------------------------------------------
+   Text selection
+   ----------------------------------------------------- */
 ::selection {
-  background: var(--color-accent);
-  color: var(--color-text);
+  background-color: var(--accent-500);
+  color: var(--accent-contrast);
+}
+
+/* -----------------------------------------------------
+   Text rendering
+   ----------------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+li,
+blockquote {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

@@ -1,0 +1,173 @@
+/* =====================================================
+   LOADER SECTION
+   File: src/sections/loader/loader.css
+
+   Full-viewport preloader. Visual styling only — progress
+   value, timing, and exit sequencing are owned by JS/GSAP.
+   This file only reacts to the `aria-hidden` state already
+   present on the markup and reuses existing keyframes from
+   animations.css where appropriate.
+   ===================================================== */
+
+/* -----------------------------------------------------
+   Loader
+   Full-screen overlay, centers content, sits above the
+   entire app via the shared z-index scale.
+   ----------------------------------------------------- */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-loader);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--color-bg);
+  overflow: hidden;
+
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity var(--dur-slower) var(--ease-emphasized),
+    visibility var(--dur-slower) var(--ease-emphasized);
+}
+
+/* -----------------------------------------------------
+   Loader Inner
+   Centered content stack. Carries a soft ambient glow
+   behind it for a more premium, less "utilitarian" feel.
+   ----------------------------------------------------- */
+.loader__inner {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 20rem;
+  padding-inline: var(--container-padding-inline);
+}
+
+/* Ambient accent glow, purely decorative (pseudo-element,
+   not a DOM addition). Reuses the existing `pulse` keyframe
+   from animations.css instead of defining new motion. */
+.loader__inner::before {
+  content: "";
+  position: absolute;
+  inset: auto;
+  top: 50%;
+  left: 50%;
+  width: 18rem;
+  height: 18rem;
+  transform: translate(-50%, -50%);
+
+  background: radial-gradient(circle, var(--accent-500) 0%, transparent 70%);
+  filter: blur(var(--blur-xl));
+  opacity: 0.12;
+  z-index: var(--z-base);
+
+  animation: pulse var(--dur-slowest) var(--ease-in-out) infinite;
+}
+
+/* -----------------------------------------------------
+   Loader Name
+   Brand mark above the progress bar.
+   ----------------------------------------------------- */
+.loader__name {
+  position: relative;
+  z-index: var(--z-content);
+
+  margin-bottom: var(--space-xl);
+
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  text-align: center;
+  white-space: nowrap;
+
+  animation: fadeIn var(--dur-slower) var(--ease-out) both;
+}
+
+/* -----------------------------------------------------
+   Loader Bar
+   Hairline track for the progress fill.
+   ----------------------------------------------------- */
+.loader__bar {
+  position: relative;
+  z-index: var(--z-content);
+
+  width: 100%;
+  height: var(--border-width-hairline);
+
+  background-color: var(--color-border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+
+  animation: fadeIn var(--dur-slower) var(--ease-out) both;
+}
+
+/* -----------------------------------------------------
+   Loader Bar Fill
+   Width/transform is driven by JS via inline styles on
+   [data-loader-bar-fill]; this file only defines its
+   appearance and a subtle pulsing glow while active,
+   reusing the existing `glow` keyframe.
+   ----------------------------------------------------- */
+.loader__bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 0%;
+  height: 100%;
+
+  background-color: var(--accent-500);
+  border-radius: var(--radius-full);
+  transform-origin: left center;
+
+  animation: glow var(--dur-slowest) var(--ease-in-out) infinite;
+}
+
+/* -----------------------------------------------------
+   Loader Percentage
+   Numeric progress readout beneath the bar.
+   ----------------------------------------------------- */
+.loader__percentage {
+  position: relative;
+  z-index: var(--z-content);
+
+  margin-top: var(--space-sm);
+
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--ls-wider);
+  color: var(--color-text-tertiary);
+  font-variant-numeric: tabular-nums;
+
+  animation: fadeIn var(--dur-slower) var(--ease-out) both;
+}
+
+/* -----------------------------------------------------
+   Responsive
+   ----------------------------------------------------- */
+@media (min-width: 768px) {
+  .loader__inner {
+    max-width: 24rem;
+  }
+
+  .loader__name {
+    font-size: var(--fs-sm);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .loader__percentage {
+    font-size: var(--fs-xs);
+  }
+}

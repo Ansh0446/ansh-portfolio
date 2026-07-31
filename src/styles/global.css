@@ -1,80 +1,170 @@
-/* =========================================================
-   GLOBAL STYLES
-   Project: Ansh Portfolio
-   ========================================================= */
+/* =====================================================
+   GLOBAL.CSS
+   Global website styling only. No reset rules, no
+   typography rules, no utility classes, no component or
+   section-specific styling, no animations belong here.
+   ===================================================== */
 
-html {
-  background: var(--color-bg);
-}
-
+/* -----------------------------------------------------
+   Theme handling
+   Background/foreground are resolved per active
+   [data-theme] on <body>, defined in variables.css.
+   ----------------------------------------------------- */
+html,
 body {
-  background: var(--color-bg);
-  color: var(--color-text);
-  overflow-x: hidden;
+  background-color: var(--color-bg);
+  color-scheme: dark light;
 }
 
-/* Container */
-
-.container {
-  width: min(100% - (2 * var(--container-padding)), var(--container-width));
-  margin-inline: auto;
+/* -----------------------------------------------------
+   Overflow handling
+   Prevents horizontal scroll introduced by decorative,
+   absolutely-positioned background layers inside sections.
+   ----------------------------------------------------- */
+html,
+body {
+  overflow-x: clip;
+  width: 100%;
 }
 
-/* Sections */
+/* -----------------------------------------------------
+   Smooth scrolling
+   Native fallback only — superseded at runtime once the
+   Lenis smooth-scroll instance takes control.
+   ----------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
 
-section {
-  padding: var(--section-spacing) 0;
+/* -----------------------------------------------------
+   Main landmark
+   ----------------------------------------------------- */
+main {
+  display: block;
   position: relative;
+  width: 100%;
 }
 
-/* Images */
-
-img {
-  user-select: none;
-  -webkit-user-drag: none;
+/* -----------------------------------------------------
+   Section containing block
+   Every <section> is an independent, self-contained
+   layout unit and establishes its own containing block
+   for decorative/absolute children and scroll offsets.
+   ----------------------------------------------------- */
+section {
+  position: relative;
+  width: 100%;
+  overflow: clip;
+  scroll-margin-top: var(--space-3xl);
 }
 
-/* Buttons */
+/* -----------------------------------------------------
+   Media defaults
+   Sizing/fit behavior only — display/max-width handled
+   in reset.css.
+   ----------------------------------------------------- */
+img,
+video {
+  object-fit: cover;
+}
 
+svg {
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+picture {
+  display: contents;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* -----------------------------------------------------
+   Button defaults (global behavior only)
+   ----------------------------------------------------- */
 button {
-  transition: var(--transition-normal);
+  background-color: transparent;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* Links */
-
-a {
-  transition: var(--transition-fast);
+/* -----------------------------------------------------
+   Global transitions
+   Limited to theme-affected visual properties so that
+   toggling [data-theme] / [data-accent] feels smooth.
+   Transform/opacity are intentionally excluded to avoid
+   conflicting with future GSAP-driven animations.
+   ----------------------------------------------------- */
+body,
+a,
+button,
+svg,
+img {
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    color var(--transition-base),
+    fill var(--transition-base);
 }
 
-/* Scrollbar */
+/* -----------------------------------------------------
+   Focus visibility
+   ----------------------------------------------------- */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: var(--border-width-thick) solid var(--accent-500);
+  outline-offset: 3px;
+  border-radius: var(--radius-xs);
+}
+
+/* -----------------------------------------------------
+   Scrollbar styling
+   ----------------------------------------------------- */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-500) transparent;
+}
 
 ::-webkit-scrollbar {
   width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-surface-alt);
+  background-color: var(--accent-500);
   border-radius: var(--radius-full);
+  border: 2px solid var(--color-bg);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent);
+  background-color: var(--accent-400);
 }
 
-/* Focus */
-
-:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 4px;
+/* -----------------------------------------------------
+   Global spacing rule
+   Removes trailing margin collapse on the last child of
+   any direct content block, independent of section theme.
+   ----------------------------------------------------- */
+section > *:last-child {
+  margin-bottom: 0;
 }
 
-/* Text Selection */
 
-::selection {
-  background: var(--color-accent);
-  color: var(--color-text);
+/* ==========================================================
+   CUSTOM CURSOR
+========================================================== */
+
+.has-custom-cursor,
+.has-custom-cursor * {
+  cursor: none;
 }

@@ -1,14 +1,25 @@
-/* =========================================================
-   UTILITIES
-   Project: Ansh Portfolio
-   ========================================================= */
+/* =====================================================
+   UTILITIES.CSS
+   Reusable utility classes only. No reset rules, no
+   typography rules, no component or section-specific
+   styling, no animations belong here.
+   ===================================================== */
 
-/* Display */
-
-.hidden {
-  display: none !important;
+/* -----------------------------------------------------
+   .container
+   Centers content and constrains it to a max width,
+   with fluid inline padding.
+   ----------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-xl);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-inline);
 }
 
+/* -----------------------------------------------------
+   Layout primitives
+   ----------------------------------------------------- */
 .flex {
   display: flex;
 }
@@ -17,59 +28,105 @@
   display: grid;
 }
 
-/* Alignment */
-
-.items-center {
-  align-items: center;
+/* -----------------------------------------------------
+   .flow
+   Adds consistent spacing between stacked children
+   without needing per-element margin rules.
+   ----------------------------------------------------- */
+.flow > * + * {
+  margin-top: var(--flow-space, var(--space-md));
 }
 
-.justify-center {
-  justify-content: center;
+/* -----------------------------------------------------
+   Gap helpers
+   Generic, reusable across any .flex or .grid context.
+   ----------------------------------------------------- */
+.gap-xs {
+  gap: var(--space-xs);
 }
 
-.justify-between {
-  justify-content: space-between;
+.gap-sm {
+  gap: var(--space-sm);
 }
 
-/* Text */
+.gap-md {
+  gap: var(--space-md);
+}
 
+.gap-lg {
+  gap: var(--space-lg);
+}
+
+.gap-xl {
+  gap: var(--space-xl);
+}
+
+/* -----------------------------------------------------
+   Visibility helpers
+   ----------------------------------------------------- */
+.hidden {
+  display: none !important;
+}
+
+.visually-hidden,
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* -----------------------------------------------------
+   Overflow helper
+   ----------------------------------------------------- */
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/* -----------------------------------------------------
+   .glass
+   Reusable glassmorphism surface, built entirely from
+   the glass/blur tokens defined in variables.css.
+   ----------------------------------------------------- */
+.glass {
+  background-color: var(--glass-bg);
+  border: var(--border-width-hairline) solid var(--glass-border);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+}
+
+/* -----------------------------------------------------
+   .blur
+   Decorative filter blur for background/glow elements,
+   distinct from the backdrop-filter used by .glass.
+   ----------------------------------------------------- */
+.blur {
+  filter: blur(var(--blur-lg));
+}
+
+/* -----------------------------------------------------
+   Text alignment helpers
+   ----------------------------------------------------- */
 .text-center {
   text-align: center;
 }
 
-.text-muted {
-  color: var(--color-text-muted);
+.text-left {
+  text-align: left;
 }
 
-.gradient-text {
-  background: linear-gradient(
-    135deg,
-    var(--color-text),
-    var(--color-accent)
-  );
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.text-right {
+  text-align: right;
 }
 
-/* Glass */
-
-.glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-
-  border: 1px solid var(--glass-border);
-}
-
-/* Border Radius */
-
-.rounded {
-  border-radius: var(--radius-lg);
-}
-
-/* Shadows */
-
-.shadow {
-  box-shadow: var(--shadow-md);
+/* -----------------------------------------------------
+   .accent-text
+   ----------------------------------------------------- */
+.accent-text {
+  color: var(--accent-500);
 }

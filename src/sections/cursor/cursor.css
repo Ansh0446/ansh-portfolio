@@ -1,0 +1,139 @@
+/* =====================================================
+   CURSOR SECTION
+   File: src/sections/cursor/cursor.css
+
+   Custom cursor: a small solid dot plus a trailing hollow
+   outline. Position, scale, magnetic pull, hover detection
+   and visibility are all driven by JS/GSAP via inline
+   transforms and state classes on [data-cursor]. This file
+   defines appearance and transition behavior only.
+   ===================================================== */
+
+/* -----------------------------------------------------
+   Cursor Root
+   Fixed, non-interactive layer pinned above all content.
+   JS applies transforms directly to the dot/outline for
+   performant per-frame movement — no positioning logic
+   (top/left/translate driven by JS) is duplicated here.
+   ----------------------------------------------------- */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-cursor);
+
+  pointer-events: none;
+}
+
+/* -----------------------------------------------------
+   Cursor Dot
+----------------------------------------------------- */
+.cursor__dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+
+  background: #ffffff;
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.45),
+    0 0 18px rgba(255, 255, 255, 0.18);
+
+  opacity: 1;
+  pointer-events: none;
+
+  transition:
+    background-color 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* -----------------------------------------------------
+   Cursor Outline
+----------------------------------------------------- */
+.cursor__outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+
+  border: 1.5px solid rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.03);
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.06),
+    inset 0 0 0 1px rgba(255,255,255,0.04),
+    0 6px 24px rgba(255,255,255,0.08);
+
+  opacity: 1;
+  pointer-events: none;
+
+  transition:
+    width 0.28s cubic-bezier(.22,1,.36,1),
+    height 0.28s cubic-bezier(.22,1,.36,1),
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+/* -----------------------------------------------------
+   State — Hover
+   Applied by JS (e.g. `.cursor--hover`) when the pointer
+   enters an interactive element. Outline grows modestly
+   and fills softly to signal affordance without feeling
+   oversized.
+   ----------------------------------------------------- */
+.cursor--hover .cursor__dot {
+  transform: scale(1.3);
+  background: #ffffff;
+}
+
+.cursor--hover .cursor__outline {
+  width: 48px;
+  height: 48px;
+
+  border-color: rgba(255,255,255,.95);
+  background: rgba(255,255,255,.06);
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.12),
+    0 12px 36px rgba(255,255,255,.14);
+}
+
+/* -----------------------------------------------------
+   State — Active
+   Applied by JS on press/click for a brief tactile
+   compression of the outline.
+   ----------------------------------------------------- */
+.cursor--active .cursor__dot {
+  transform: scale(0.85);
+}
+
+.cursor--active .cursor__outline {
+  width: 28px;
+  height: 28px;
+
+  background: rgba(255,255,255,.10);
+}
+
+/* -----------------------------------------------------
+   State — Hidden
+   Applied by JS when the custom cursor should be
+   suppressed (e.g. pointer leaves the viewport, or on
+   touch input). Native cursor visibility is managed
+   entirely by JS, not by this stylesheet.
+   ----------------------------------------------------- */
+.cursor--hidden .cursor__dot,
+.cursor--hidden .cursor__outline {
+  opacity: 0;
+}

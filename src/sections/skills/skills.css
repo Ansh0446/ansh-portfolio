@@ -1,0 +1,151 @@
+/* =====================================================
+   SKILLS SECTION
+   File: src/sections/skills/skills.css
+
+   A grid of typography-led skill groups. Entrance
+   animation and scroll triggers are owned entirely by
+   JS/GSAP — this file only defines layout and static
+   visual styling. Cards are intentionally light — hairline
+   borders and generous whitespace instead of boxed,
+   dashboard-style panels.
+   ===================================================== */
+
+/* -----------------------------------------------------
+   Skills
+   ----------------------------------------------------- */
+.skills {
+  padding-block: var(--space-4xl);
+}
+
+/* -----------------------------------------------------
+   Container
+   ----------------------------------------------------- */
+.skills__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+
+  max-width: var(--container-lg);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-inline);
+}
+
+/* -----------------------------------------------------
+   Header
+   Eyebrow + title, mirrors the introductory pattern used
+   across other sections for visual consistency.
+   ----------------------------------------------------- */
+.skills__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+
+  max-width: var(--container-md);
+}
+
+.skills__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--accent-500);
+}
+
+.skills__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--color-text-primary);
+}
+
+/* -----------------------------------------------------
+   Grid
+   Single column on mobile, expanding as space allows.
+   ----------------------------------------------------- */
+.skills__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+/* -----------------------------------------------------
+   Skill Card
+   No fill, no shadow — a hairline top border and generous
+   padding carry the separation, keeping the group feeling
+   like a typographic list rather than a UI widget.
+   ----------------------------------------------------- */
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+
+  padding-top: var(--space-lg);
+  border-top: var(--border-width-hairline) solid var(--color-border);
+
+  transition: border-color var(--dur-base) var(--ease-standard);
+}
+
+.skill-card:hover {
+  border-top-color: var(--color-border-strong);
+}
+
+.skill-card__title {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+.skill-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.skill-card__list li {
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-snug);
+  color: var(--color-text-primary);
+
+  transition: color var(--dur-fast) var(--ease-standard);
+}
+
+.skill-card:hover .skill-card__list li:hover {
+  color: var(--accent-500);
+}
+
+/* -----------------------------------------------------
+   Responsive
+   ----------------------------------------------------- */
+@media (min-width: 640px) {
+  .skills__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .skills {
+    padding-block: var(--space-5xl);
+  }
+
+  .skills__title {
+    font-size: var(--fs-3xl);
+  }
+
+  .skills__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xl);
+  }
+}

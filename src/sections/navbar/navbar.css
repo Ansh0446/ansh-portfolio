@@ -1,0 +1,346 @@
+/* =====================================================
+   NAVBAR SECTION
+   File: src/sections/navbar/navbar.css
+
+   Fixed top-level navigation. JS owns scroll detection,
+   active-link tracking, mobile menu open/close, and theme
+   switching — this file defines appearance, layout and
+   transition behavior only, reacting to the state hooks
+   JS applies (aria-expanded, BEM state modifiers).
+   ===================================================== */
+
+/* -----------------------------------------------------
+   Navbar
+   Fixed header, transparent by default. JS toggles the
+   `.navbar--scrolled` modifier once the page has scrolled
+   past a threshold to introduce the glass background.
+   ----------------------------------------------------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-header);
+
+  width: 100%;
+
+  background-color: transparent;
+  border-bottom: var(--border-width-hairline) solid transparent;
+
+  animation: fadeIn var(--dur-slower) var(--ease-out) both;
+  transition:
+    background-color var(--dur-base) var(--ease-standard),
+    border-color var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard);
+}
+
+/* Scrolled state — applied by JS once the user scrolls
+   past the top of the page. */
+.navbar--scrolled {
+  background-color: var(--glass-bg);
+  border-bottom-color: var(--glass-border);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+}
+
+/* -----------------------------------------------------
+   Navbar Container
+   Constrains and aligns the logo, nav and actions.
+   ----------------------------------------------------- */
+.navbar__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  max-width: var(--container-xl);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-inline);
+  padding-block: var(--space-sm);
+}
+
+/* -----------------------------------------------------
+   Logo
+   ----------------------------------------------------- */
+.navbar__logo {
+  display: inline-flex;
+  align-items: center;
+
+  text-decoration: none;
+  color: var(--color-text-primary);
+}
+
+.navbar__logo-text {
+  font-family: var(--font-display);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: inherit;
+
+  transition: color var(--dur-fast) var(--ease-standard);
+}
+
+.navbar__logo:hover .navbar__logo-text {
+  color: var(--accent-500);
+}
+
+/* -----------------------------------------------------
+   Nav
+   Mobile-first: a full-screen overlay panel, hidden until
+   JS applies the `.navbar__nav--open` modifier in response
+   to the menu toggle. Carries the same premium glass
+   treatment as the scrolled navbar. Rebuilt as an inline
+   row at desktop widths further down.
+   ----------------------------------------------------- */
+.navbar__nav {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-navbar-panel);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--glass-bg-strong);
+  backdrop-filter: blur(var(--blur-lg));
+  -webkit-backdrop-filter: blur(var(--blur-lg));
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(calc(var(--space-lg) * -1));
+
+  transition:
+    opacity var(--dur-slow) var(--ease-emphasized),
+    transform var(--dur-slow) var(--ease-emphasized),
+    visibility var(--dur-slow) var(--ease-emphasized);
+}
+
+/* Open state — applied by JS when the mobile menu is
+   toggled via [data-menu-toggle]. */
+.navbar__nav--open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.navbar__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__link {
+  position: relative;
+
+  font-family: var(--font-body);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-normal);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+
+  transition: color var(--dur-fast) var(--ease-standard);
+}
+
+/* Underline affordance, drawn with a pseudo-element so
+   the markup stays untouched. */
+.navbar__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: calc(var(--space-3xs) * -1);
+
+  width: 100%;
+  height: var(--border-width-hairline);
+
+  background-color: var(--accent-500);
+  transform: scaleX(0);
+  transform-origin: right center;
+
+  transition: transform var(--dur-base) var(--ease-emphasized);
+}
+
+.navbar__link:hover,
+.navbar__link:focus-visible {
+  color: var(--color-text-primary);
+}
+
+.navbar__link:hover::after,
+.navbar__link:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* Active link — JS marks the section currently in view. */
+.navbar__link--active {
+  color: var(--color-text-primary);
+}
+
+.navbar__link--active::after {
+  transform: scaleX(1);
+}
+
+/* -----------------------------------------------------
+   Actions
+   Holds the theme and menu toggles. Kept above the mobile
+   nav overlay (same layer as the panel itself) so both
+   controls remain reachable while the menu is open.
+   ----------------------------------------------------- */
+.navbar__actions {
+  position: relative;
+  z-index: var(--z-navbar-panel);
+
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* -----------------------------------------------------
+   Theme Toggle
+   Icon content is provided by JS at runtime; this defines
+   the button shell and lets any injected icon inherit the
+   correct color via currentColor.
+   ----------------------------------------------------- */
+.navbar__theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: var(--space-xl);
+  height: var(--space-xl);
+
+  border: var(--border-width-hairline) solid var(--color-border);
+  border-radius: var(--radius-full);
+  background-color: transparent;
+  color: var(--color-text-primary);
+
+  cursor: pointer;
+  transition:
+    background-color var(--dur-fast) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard),
+    box-shadow var(--dur-fast) var(--ease-standard),
+    transform var(--dur-fast) var(--ease-standard);
+}
+
+.navbar__theme-toggle:hover {
+  background-color: var(--glass-bg);
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-xs);
+}
+
+.navbar__theme-toggle:active {
+  transform: scale(0.94);
+}
+
+.navbar__theme-toggle:focus-visible {
+  outline: var(--border-width-thin) solid var(--accent-500);
+  outline-offset: var(--space-3xs);
+}
+
+/* -----------------------------------------------------
+   Menu Toggle
+   Two-span hamburger, morphing into a close icon via
+   [aria-expanded], which JS sets when the mobile nav opens.
+   ----------------------------------------------------- */
+.navbar__menu-toggle {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: var(--space-xl);
+  height: var(--space-xl);
+
+  border: none;
+  background-color: transparent;
+  color: var(--color-text-primary);
+
+  cursor: pointer;
+}
+
+.navbar__menu-toggle span {
+  position: absolute;
+
+  width: var(--space-md);
+  height: var(--border-width-thin);
+
+  background-color: currentColor;
+  border-radius: var(--radius-full);
+
+  transition:
+    transform var(--dur-base) var(--ease-emphasized),
+    opacity var(--dur-fast) var(--ease-standard);
+}
+
+.navbar__menu-toggle span:first-child {
+  transform: translateY(calc(var(--space-3xs) * -1));
+}
+
+.navbar__menu-toggle span:last-child {
+  transform: translateY(var(--space-3xs));
+}
+
+/* Open state — JS sets aria-expanded="true" on activation. */
+.navbar__menu-toggle[aria-expanded="true"] span:first-child {
+  transform: translateY(0) rotate(45deg);
+}
+
+.navbar__menu-toggle[aria-expanded="true"] span:last-child {
+  transform: translateY(0) rotate(-45deg);
+}
+
+.navbar__menu-toggle:focus-visible {
+  outline: var(--border-width-thin) solid var(--accent-500);
+  outline-offset: var(--space-3xs);
+  border-radius: var(--radius-sm);
+}
+
+/* -----------------------------------------------------
+   Responsive
+   ----------------------------------------------------- */
+@media (min-width: 1024px) {
+  .navbar__container {
+    padding-block: var(--space-md);
+  }
+
+  /* Nav becomes a static inline row instead of a
+     full-screen overlay. */
+  .navbar__nav {
+    position: static;
+    inset: auto;
+    z-index: auto;
+
+    display: block;
+
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: none;
+  }
+
+  .navbar__list {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-xl);
+  }
+
+  .navbar__link {
+    font-size: var(--fs-sm);
+    letter-spacing: var(--ls-wide);
+  }
+
+  /* Menu toggle is a mobile-only control. */
+  .navbar__menu-toggle {
+    display: none;
+  }
+}

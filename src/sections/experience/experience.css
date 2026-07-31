@@ -1,0 +1,187 @@
+/* =====================================================
+   EXPERIENCE SECTION
+   File: src/sections/experience/experience.css
+
+   Editorial timeline of roles: year, role, company and
+   description. Entrance animation and scroll triggers are
+   owned entirely by JS/GSAP — this file only defines
+   layout and static visual styling. Items are separated
+   by hairline dividers rather than boxed resume cards.
+   ===================================================== */
+
+/* -----------------------------------------------------
+   Experience
+   ----------------------------------------------------- */
+.experience {
+  padding-block: var(--space-4xl);
+}
+
+/* -----------------------------------------------------
+   Container
+   ----------------------------------------------------- */
+.experience__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xl);
+
+  max-width: var(--container-lg);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-inline);
+}
+
+/* -----------------------------------------------------
+   Header
+   Eyebrow + title, consistent with other sections.
+   ----------------------------------------------------- */
+.experience__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+
+  max-width: var(--container-md);
+}
+
+.experience__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--accent-500);
+}
+
+.experience__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--color-text-primary);
+}
+
+/* -----------------------------------------------------
+   Timeline
+   Stacked list of entries, each separated by a hairline
+   divider — the divider itself carries the "timeline"
+   feel rather than a decorative rail or dot markers.
+   ----------------------------------------------------- */
+.experience__timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+/* -----------------------------------------------------
+   Experience Item
+   Mobile-first: year above content. Rebuilt as a
+   two-column editorial row at desktop widths, with the
+   year fixed to a narrow left column.
+   ----------------------------------------------------- */
+.experience-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+
+  padding-block: var(--space-2xl);
+  border-top: var(--border-width-hairline) solid var(--color-border);
+}
+
+.experience-item:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+.experience-item:last-child {
+  padding-bottom: 0;
+}
+
+/* -----------------------------------------------------
+   Meta
+   ----------------------------------------------------- */
+.experience-item__meta {
+  display: flex;
+  align-items: baseline;
+}
+
+.experience-item__year {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-wide);
+  color: var(--color-text-tertiary);
+}
+
+/* -----------------------------------------------------
+   Content
+   ----------------------------------------------------- */
+.experience-item__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.experience-item__role {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  color: var(--color-text-primary);
+}
+
+.experience-item__company {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--accent-500);
+}
+
+.experience-item__description {
+  max-width: var(--container-sm);
+  margin-top: var(--space-2xs);
+
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-secondary);
+}
+
+/* -----------------------------------------------------
+   Responsive
+   ----------------------------------------------------- */
+@media (min-width: 768px) {
+  .experience-item {
+    flex-direction: row;
+    gap: var(--space-2xl);
+  }
+
+  .experience-item__meta {
+    flex: 0 0 auto;
+    width: 8rem;
+  }
+
+  .experience-item__content {
+    flex: 1 1 auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .experience {
+    padding-block: var(--space-5xl);
+  }
+
+  .experience__title {
+    font-size: var(--fs-3xl);
+  }
+
+  .experience-item {
+    gap: var(--space-3xl);
+  }
+
+  .experience-item__meta {
+    width: 10rem;
+  }
+
+  .experience-item__role {
+    font-size: var(--fs-xl);
+  }
+}

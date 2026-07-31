@@ -1,121 +1,300 @@
-/* =========================================================
-   DESIGN TOKENS
-   Project: Ansh Portfolio
-   ========================================================= */
+/* =====================================================
+   VARIABLES.CSS
+   Design tokens only. No styling rules belong here.
+   ===================================================== */
 
 :root {
-  /* ========================================
-     COLORS
-     ======================================== */
 
-  --color-bg: #09090b;
-  --color-surface: #111114;
-  --color-surface-alt: #18181b;
+  /* -----------------------------------------------------
+     COLOR PRIMITIVES
+     Raw color values. Never reference these directly in
+     components — always go through the semantic tokens
+     defined per-theme below.
+     ----------------------------------------------------- */
+  --color-black: #000000;
+  --color-white: #ffffff;
 
-  --color-text: #fafafa;
-  --color-text-muted: #a1a1aa;
+  --color-gray-950: #08090b;
+  --color-gray-900: #0d0e11;
+  --color-gray-850: #12141a;
+  --color-gray-800: #181b22;
+  --color-gray-700: #22262f;
+  --color-gray-600: #2f333d;
+  --color-gray-500: #454a56;
+  --color-gray-400: #6b7180;
+  --color-gray-300: #9599a6;
+  --color-gray-200: #c2c5cf;
+  --color-gray-100: #e4e6eb;
+  --color-gray-50:  #f5f6f8;
 
-  --color-border: rgba(255, 255, 255, 0.08);
+  --color-violet-500: #7c5cff;
+  --color-violet-400: #9b81ff;
+  --color-violet-300: #c3b3ff;
 
-  --color-accent: #7c3aed;
-  --color-accent-hover: #8b5cf6;
+  --color-blue-500: #3d8bff;
+  --color-blue-400: #6ba5ff;
+  --color-blue-300: #a3c7ff;
 
-  --color-success: #22c55e;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
+  --color-green-500: #2fd989;
+  --color-green-400: #5be6a5;
+  --color-green-300: #9df2c6;
 
-  /* ========================================
-     TYPOGRAPHY
-     ======================================== */
+  --color-orange-500: #ff7a45;
+  --color-orange-400: #ff9a6e;
+  --color-orange-300: #ffbf9e;
 
-  --font-primary: "Geist", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  /* -----------------------------------------------------
+     ACCENT SYSTEM
+     Controlled at runtime via [data-accent] on <body>.
+     Default falls back to violet.
+     ----------------------------------------------------- */
+  --accent-500: var(--color-violet-500);
+  --accent-400: var(--color-violet-400);
+  --accent-300: var(--color-violet-300);
+  --accent-contrast: var(--color-white);
 
-  --fs-display: clamp(3.5rem, 8vw, 6rem);
-  --fs-h1: clamp(2.5rem, 5vw, 4rem);
-  --fs-h2: clamp(2rem, 4vw, 3rem);
-  --fs-h3: 1.5rem;
+  /* -----------------------------------------------------
+     TYPOGRAPHY — FONT FAMILIES
+     ----------------------------------------------------- */
+  --font-display: "Neue Montreal", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 
-  --fs-body-lg: 1.125rem;
-  --fs-body: 1rem;
-  --fs-small: 0.875rem;
-  --fs-caption: 0.75rem;
-
-  --fw-light: 300;
+  /* -----------------------------------------------------
+     TYPOGRAPHY — FONT WEIGHTS
+     ----------------------------------------------------- */
   --fw-regular: 400;
   --fw-medium: 500;
   --fw-semibold: 600;
   --fw-bold: 700;
+  --fw-black: 900;
 
-  --lh-tight: 1.1;
-  --lh-normal: 1.6;
+  /* -----------------------------------------------------
+     TYPOGRAPHY — FLUID SCALE
+     Fluid clamp-based scale, mobile-first.
+     ----------------------------------------------------- */
+  --fs-2xs: clamp(0.6875rem, 0.66rem + 0.15vw, 0.75rem);
+  --fs-xs:  clamp(0.75rem, 0.72rem + 0.2vw, 0.8125rem);
+  --fs-sm:  clamp(0.875rem, 0.84rem + 0.25vw, 0.9375rem);
+  --fs-base: clamp(1rem, 0.96rem + 0.3vw, 1.125rem);
+  --fs-md:  clamp(1.125rem, 1.06rem + 0.4vw, 1.25rem);
+  --fs-lg:  clamp(1.375rem, 1.28rem + 0.6vw, 1.625rem);
+  --fs-xl:  clamp(1.75rem, 1.6rem + 1vw, 2.25rem);
+  --fs-2xl: clamp(2.25rem, 2rem + 1.6vw, 3rem);
+  --fs-3xl: clamp(2.75rem, 2.3rem + 2.6vw, 4rem);
+  --fs-4xl: clamp(3.5rem, 2.7rem + 4.5vw, 5.5rem);
+  --fs-5xl: clamp(4.5rem, 3.2rem + 7vw, 8rem);
+  --fs-hero: clamp(5rem, 3rem + 10vw, 11rem);
 
-  /* ========================================
-     SPACING
-     ======================================== */
+  /* -----------------------------------------------------
+     TYPOGRAPHY — LINE HEIGHT & LETTER SPACING
+     ----------------------------------------------------- */
+  --lh-tight: 1.05;
+  --lh-snug: 1.2;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.7;
 
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.5rem;
-  --space-6: 2rem;
-  --space-7: 3rem;
-  --space-8: 4rem;
-  --space-9: 6rem;
-  --space-10: 8rem;
+  --ls-tighter: -0.04em;
+  --ls-tight: -0.02em;
+  --ls-normal: 0;
+  --ls-wide: 0.04em;
+  --ls-wider: 0.12em;
+  --ls-widest: 0.24em;
 
-  /* ========================================
-     LAYOUT
-     ======================================== */
+  /* -----------------------------------------------------
+     SPACING SCALE
+     ----------------------------------------------------- */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs:  0.75rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  2rem;
+  --space-xl:  3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --space-4xl: 8rem;
+  --space-5xl: 12rem;
 
-  --container-width: 1200px;
-  --container-padding: 1.5rem;
-
-  --section-spacing: 8rem;
-
-  /* ========================================
-     BORDER RADIUS
-     ======================================== */
-
-  --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
+  /* -----------------------------------------------------
+     RADIUS SCALE
+     ----------------------------------------------------- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-2xl: 40px;
   --radius-full: 999px;
 
-  /* ========================================
+  /* -----------------------------------------------------
+     BORDER
+     ----------------------------------------------------- */
+  --border-width-hairline: 1px;
+  --border-width-thin: 1.5px;
+  --border-width-thick: 2px;
+
+  /* -----------------------------------------------------
      SHADOWS
-     ======================================== */
+     ----------------------------------------------------- */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.28);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.32);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 24px 80px rgba(0, 0, 0, 0.48);
+  --shadow-accent-glow: 0 0 48px 0 var(--accent-500);
 
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.15);
-  --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.25);
-  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.35);
+  /* -----------------------------------------------------
+     GLASS / BLUR
+     ----------------------------------------------------- */
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-bg-strong: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-highlight: rgba(255, 255, 255, 0.18);
 
-  /* ========================================
-     GLASS EFFECT
-     ======================================== */
+  --blur-xs: 4px;
+  --blur-sm: 8px;
+  --blur-md: 16px;
+  --blur-lg: 24px;
+  --blur-xl: 40px;
 
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-blur: 18px;
+  /* -----------------------------------------------------
+     CONTAINER WIDTHS
+     ----------------------------------------------------- */
+  --container-sm: 40rem;
+  --container-md: 56rem;
+  --container-lg: 72rem;
+  --container-xl: 84rem;
+  --container-2xl: 96rem;
+  --container-padding-inline: clamp(1.25rem, 4vw, 4rem);
 
-  /* ========================================
-     TRANSITIONS
-     ======================================== */
+  /* -----------------------------------------------------
+     BREAKPOINTS
+     Reference only — CSS custom properties cannot be used
+     inside @media queries, kept here for documentation and
+     for JS (matchMedia) consumption via getComputedStyle.
+     ----------------------------------------------------- */
+  --bp-xs: 360px;
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1536px;
 
-  --transition-fast: 150ms ease;
-  --transition-normal: 300ms ease;
-  --transition-slow: 500ms ease;
+  /* -----------------------------------------------------
+     Z-INDEX LAYERS
+     ----------------------------------------------------- */
+  --z-base: 0;
+  --z-content: 1;
+  --z-decor: 5;
+  --z-header: 100;
+  --z-navbar-panel: 110;
+  --z-cursor: 200;
+  --z-page-transition: 300;
+  --z-loader: 400;
 
-  /* ========================================
-     Z-INDEX
-     ======================================== */
+  /* -----------------------------------------------------
+     ANIMATION DURATION
+     ----------------------------------------------------- */
+  --dur-instant: 100ms;
+  --dur-fast: 200ms;
+  --dur-base: 350ms;
+  --dur-slow: 550ms;
+  --dur-slower: 800ms;
+  --dur-slowest: 1200ms;
 
-  --z-background: -1;
-  --z-default: 1;
-  --z-navbar: 100;
-  --z-cursor: 500;
-  --z-loader: 999;
-  --z-modal: 1000;
+  /* -----------------------------------------------------
+     TRANSITION TIMING / EASING FUNCTIONS
+     ----------------------------------------------------- */
+  --ease-linear: linear;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --transition-base: var(--dur-base) var(--ease-standard);
+}
+
+/* =====================================================
+   DARK THEME (default)
+   ===================================================== */
+[data-theme="dark"] {
+  --color-bg: var(--color-gray-950);
+  --color-bg-elevated: var(--color-gray-900);
+  --color-bg-surface: var(--color-gray-850);
+  --color-bg-surface-hover: var(--color-gray-800);
+
+  --color-text-primary: var(--color-white);
+  --color-text-secondary: var(--color-gray-300);
+  --color-text-tertiary: var(--color-gray-400);
+  --color-text-disabled: var(--color-gray-500);
+  --color-text-inverse: var(--color-gray-950);
+
+  --color-border: var(--color-gray-700);
+  --color-border-strong: var(--color-gray-600);
+
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-bg-strong: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.12);
+}
+
+/* =====================================================
+   LIGHT THEME
+   ===================================================== */
+[data-theme="light"] {
+  --color-bg: var(--color-gray-50);
+  --color-bg-elevated: var(--color-white);
+  --color-bg-surface: var(--color-gray-100);
+  --color-bg-surface-hover: var(--color-gray-200);
+
+  --color-text-primary: var(--color-gray-950);
+  --color-text-secondary: var(--color-gray-600);
+  --color-text-tertiary: var(--color-gray-500);
+  --color-text-disabled: var(--color-gray-300);
+  --color-text-inverse: var(--color-white);
+
+  --color-border: var(--color-gray-200);
+  --color-border-strong: var(--color-gray-300);
+
+  --glass-bg: rgba(13, 14, 17, 0.05);
+  --glass-bg-strong: rgba(13, 14, 17, 0.08);
+  --glass-border: rgba(13, 14, 17, 0.1);
+}
+
+/* =====================================================
+   ACCENT — VIOLET (default)
+   ===================================================== */
+[data-accent="violet"] {
+  --accent-500: var(--color-violet-500);
+  --accent-400: var(--color-violet-400);
+  --accent-300: var(--color-violet-300);
+}
+
+/* =====================================================
+   ACCENT — BLUE
+   ===================================================== */
+[data-accent="blue"] {
+  --accent-500: var(--color-blue-500);
+  --accent-400: var(--color-blue-400);
+  --accent-300: var(--color-blue-300);
+}
+
+/* =====================================================
+   ACCENT — GREEN
+   ===================================================== */
+[data-accent="green"] {
+  --accent-500: var(--color-green-500);
+  --accent-400: var(--color-green-400);
+  --accent-300: var(--color-green-300);
+}
+
+/* =====================================================
+   ACCENT — ORANGE
+   ===================================================== */
+[data-accent="orange"] {
+  --accent-500: var(--color-orange-500);
+  --accent-400: var(--color-orange-400);
+  --accent-300: var(--color-orange-300);
 }

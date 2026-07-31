@@ -1,40 +1,44 @@
-/* =========================================================
-   CSS RESET
-   Project: Ansh Portfolio
-   ========================================================= */
+/* =====================================================
+   RESET.CSS
+   Modern browser reset only. No tokens, no typography,
+   no utilities, no components, no theme logic, no
+   animations belong here.
+   ===================================================== */
 
-/* Box sizing */
-
+/* -----------------------------------------------------
+   Box sizing
+   ----------------------------------------------------- */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Remove default spacing */
-
+/* -----------------------------------------------------
+   Remove default margin from every element
+   ----------------------------------------------------- */
 * {
   margin: 0;
-  padding: 0;
 }
 
-/* Improve scrolling */
-
-html {
-  scroll-behavior: smooth;
+/* -----------------------------------------------------
+   Root & body baseline
+   ----------------------------------------------------- */
+html,
+body {
+  height: 100%;
 }
-
-/* Body defaults */
 
 body {
-  min-height: 100vh;
-  text-rendering: optimizeLegibility;
+  line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-/* Media */
-
+/* -----------------------------------------------------
+   Media defaults
+   ----------------------------------------------------- */
 img,
 picture,
 video,
@@ -42,69 +46,101 @@ canvas,
 svg {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
-/* Forms */
-
+/* -----------------------------------------------------
+   Form element inheritance
+   ----------------------------------------------------- */
 input,
 button,
 textarea,
 select {
   font: inherit;
   color: inherit;
-  background: transparent;
+  letter-spacing: inherit;
+  background: none;
   border: none;
-  outline: none;
 }
-
-/* Buttons */
 
 button {
   cursor: pointer;
-  background: none;
+  text-align: inherit;
 }
 
-/* Links */
-
-a {
-  color: inherit;
-  text-decoration: none;
+button:disabled {
+  cursor: not-allowed;
 }
-
-/* Lists */
-
-ul,
-ol {
-  list-style: none;
-}
-
-/* Tables */
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/* Text overflow */
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
-/* Textarea */
 
 textarea {
   resize: vertical;
 }
 
-/* Disabled animations for accessibility */
+textarea:not([rows]) {
+  min-height: 10em;
+}
 
+/* -----------------------------------------------------
+   Anchor & list reset
+   ----------------------------------------------------- */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+/* -----------------------------------------------------
+   Table reset
+   ----------------------------------------------------- */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* -----------------------------------------------------
+   Fieldset / legend reset
+   ----------------------------------------------------- */
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+/* -----------------------------------------------------
+   Remove default appearance on interactive elements
+   ----------------------------------------------------- */
+input[type="search"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+::-webkit-search-decoration,
+::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* -----------------------------------------------------
+   Iframe reset
+   ----------------------------------------------------- */
+iframe {
+  border: none;
+}
+
+/* -----------------------------------------------------
+   Reduced motion baseline
+   Ensures every element respects the user's OS-level
+   motion preference at the reset layer, before any
+   animation is authored elsewhere.
+   ----------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

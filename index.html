@@ -1,100 +1,630 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="en" data-lenis-root>
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ansh Banga — AI &amp; Software Developer</title>
+  <meta name="description" content="Portfolio of Ansh Banga, a B.Tech AI &amp; Data Science student and AI/Software Developer building AI-powered, full-stack applications.">
+  <meta name="author" content="Ansh Banga">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ansh Banga — AI &amp; Software Developer">
+  <meta property="og:description" content="Portfolio of Ansh Banga, a B.Tech AI &amp; Data Science student and AI/Software Developer building AI-powered, full-stack applications.">
+  <meta property="og:image" content="assets/images/og-cover.jpg">
+  <!-- Add production domain once available -->
+  <meta property="og:url" content="https://anshbanga.dev">
 
-  <meta
-    name="description"
-    content="Portfolio of Ansh Banga — AI & Data Science Student, Full Stack Developer and AI Enthusiast."
-  />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ansh Banga — AI &amp; Software Developer">
+  <meta name="twitter:description" content="Portfolio of Ansh Banga, a B.Tech AI &amp; Data Science student and AI/Software Developer building AI-powered, full-stack applications.">
+  <meta name="twitter:image" content="assets/images/og-cover.jpg">
 
-  <meta
-    name="author"
-    content="Ansh Banga"
-  />
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <!-- Add production domain once available -->
+  <link rel="canonical" href="https://anshbanga.dev">
 
-  <title>Ansh Banga | Portfolio</title>
-
-  <link
-    rel="icon"
-    href="/favicon/favicon.ico"
-  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 </head>
+<body data-theme="dark" data-accent="violet">
 
-<body>
+  <!-- ===================================================== -->
+  <!-- LOADER (future page loader) -->
+  <!-- ===================================================== -->
 
-  <!-- =========================
-       Navbar
-  ========================== -->
+  <div class="loader" id="loader" data-loader aria-hidden="true">
+    <div class="loader__inner">
+      <p class="loader__name">Compiling Chaos...</p>
+      <div class="loader__bar" data-loader-bar>
+        <div class="loader__bar-fill" data-loader-bar-fill></div>
+      </div>
+      <span class="loader__percentage" data-loader-percentage>0%</span>
+    </div>
+  </div>
 
-  <header class="navbar">
+  <!-- ===================================================== -->
+  <!-- PAGE TRANSITION OVERLAY (future page transitions) -->
+  <!-- ===================================================== -->
 
-  </header>
+  <div class="page-transition" id="pageTransition" data-page-transition aria-hidden="true">
+    <div class="page-transition__panel" data-page-transition-panel></div>
+  </div>
 
-  <!-- =========================
-       Main
-  ========================== -->
+  <!-- ===================================================== -->
+  <!-- CUSTOM CURSOR (future custom cursor) -->
+  <!-- ===================================================== -->
 
-  <main>
+  <div class="cursor" id="cursor" data-cursor aria-hidden="true">
+    <span class="cursor__dot" data-cursor-dot></span>
+    <span class="cursor__outline" data-cursor-outline></span>
+  </div>
 
-    <!-- Hero -->
+<!-- ===================================================== -->
+<!-- NAVBAR -->
+<!-- ===================================================== -->
 
-    <section id="hero">
+<header class="header" id="header" data-header>
+  <nav class="navbar" id="navbar" data-navbar aria-label="Primary">
+    <div class="navbar__container">
 
-    </section>
+      <a class="navbar__logo" href="#hero" data-cursor="hover">
+        <span class="navbar__logo-text">Ansh Banga</span>
+      </a>
 
-    <!-- About -->
+      <div class="navbar__nav" id="navbarNav" data-navbar-nav>
+        <ul class="navbar__list" role="list">
+          <li>
+            <a class="navbar__link navbar__link--active" href="#hero" data-nav-link>Home</a>
+          </li>
+          <li>
+            <a class="navbar__link" href="#about" data-nav-link>About</a>
+          </li>
+          <li>
+            <a class="navbar__link" href="#skills" data-nav-link>Skills</a>
+          </li>
+          <li>
+            <a class="navbar__link" href="#projects" data-nav-link>Projects</a>
+          </li>
+          <li>
+            <a class="navbar__link" href="#experience" data-nav-link>Experience</a>
+          </li>
+          <li>
+            <a class="navbar__link" href="#contact" data-nav-link>Contact</a>
+          </li>
+        </ul>
+      </div>
 
-    <section id="about">
+      <div class="navbar__actions">
+        <button
+          class="navbar__theme-toggle"
+          id="themeToggle"
+          type="button"
+          data-theme-toggle
+          data-cursor="hover"
+          aria-label="Switch between light and dark theme"
+          aria-pressed="false"
+        ></button>
 
-    </section>
+        <button
+          class="navbar__menu-toggle"
+          id="menuToggle"
+          type="button"
+          data-menu-toggle
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="navbarNav"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
 
-    <!-- Skills -->
+    </div>
+  </nav>
+</header>
+<main id="main-content">
+<!-- ===================================================== -->
+<!-- HERO -->
+<!-- ===================================================== -->
 
-    <section id="skills">
+<section class="hero" id="hero" data-scroll-section="hero" aria-label="Introduction">
 
-    </section>
+  <div class="hero__container">
 
-    <!-- Projects -->
+    <div class="hero__content">
+      <p class="hero__eyebrow" data-hero-badge style="opacity:0;">AI &amp; Software Developer</p>
 
-    <section id="projects">
+      <h1 class="hero__title" data-hero-heading style="opacity:0;">ANSH BANGA</h1>
 
-    </section>
+      <p class="hero__description" data-hero-subtitle style="opacity:0;">
+        Artificial Intelligence · Data Science · Machine Learning
+      </p>
 
-    <!-- Experience -->
+      <div class="hero__actions" data-hero-cta style="opacity:0;">
+        <a
+          class="hero__button"
+          href="#projects"
+          data-magnetic
+          data-cursor="hover"
+          data-hero-cta-item
+        >
+          View Projects
+        </a>
+        <a
+          class="hero__link"
+          href="#contact"
+          data-magnetic
+          data-cursor="hover"
+          data-hero-cta-item
+        >
+          Get in Touch
+        </a>
+      </div>
+    </div>
 
-    <section id="experience">
+    <div class="hero__media" data-hero-media style="opacity:0;">
+      <img src="assets/img/ansh-banga-portrait.jpeg" alt="Portrait of Ansh Banga" />
+    </div>
 
-    </section>
+  </div>
 
-    <!-- Contact -->
+    <a
+    class="hero__scroll"
+    href="#about"
+    data-magnetic
+    data-cursor="hover"
+    data-hero-scroll
+    aria-label="Scroll to About section"
+    style="opacity:0;"
+  >
+    Scroll
+  </a>
 
-    <section id="contact">
+</section>
+<!-- ===================================================== -->
+<!-- ABOUT -->
+<!-- ===================================================== -->
 
-    </section>
+<section class="about" id="about" data-scroll-section="about" aria-labelledby="about-title">
+  <div class="about__container">
 
-  </main>
+    <div class="about__content">
+      <span class="about__eyebrow" data-reveal="fade">About</span>
+      <h2 class="about__title" id="about-title" data-reveal="heading">Who I am.</h2>
 
-  <!-- =========================
-       Footer
-  ========================== -->
+      <div class="about__text">
+        <p data-reveal="fade">
+          B.Tech student in Artificial Intelligence &amp; Data Science with hands-on experience building
+          AI-powered, full-stack applications. Skilled in Python, Java, Flask, Scikit-learn, and Firebase,
+          with a strong interest in machine learning and backend development.
+        </p>
 
-  <footer>
+        <img
+          src="assets/images/about.jpg"
+          alt="Ansh Banga"
+          width="560"
+          height="420"
+          loading="lazy"
+        >
+      </div>
+    </div>
 
-  </footer>
+    <div class="about__stats" role="list">
+      <div class="about__stat" role="listitem" data-reveal="fade" data-reveal-index="0">
+        <span class="about__stat-value">B.Tech</span>
+        <span class="about__stat-label">AI &amp; Data Science — VIPS (GGSIPU)</span>
+      </div>
+      <div class="about__stat" role="listitem" data-reveal="fade" data-reveal-index="1">
+        <span class="about__stat-value">8.64</span>
+        <span class="about__stat-label">CGPA</span>
+      </div>
+      <div class="about__stat" role="listitem" data-reveal="fade" data-reveal-index="2">
+        <span class="about__stat-value">DRDO–SSPL</span>
+        <span class="about__stat-label">Research Intern</span>
+      </div>
+      <div class="about__stat" role="listitem" data-reveal="fade" data-reveal-index="3">
+        <span class="about__stat-value">Top 10</span>
+        <span class="about__stat-label">INNERVE 2026 (IGDTUW)</span>
+      </div>
+    </div>
 
-  <script
-    type="module"
-    src="/src/main.js">
-  </script>
+  </div>
+</section>
+<!-- ===================================================== -->
+<!-- SKILLS -->
+<!-- ===================================================== -->
 
-</body>
+<section class="skills" id="skills" data-scroll-section="skills" aria-labelledby="skills-title">
+  <div class="skills__container">
 
+    <div class="skills__header">
+      <span class="skills__eyebrow" data-reveal="fade">Skills</span>
+      <h2 class="skills__title" id="skills-title" data-reveal="heading">Technical skill set.</h2>
+    </div>
+
+    <div class="skills__grid">
+
+      <article class="skill-card" data-reveal="card" data-reveal-index="0">
+        <h3 class="skill-card__title">Languages</h3>
+        <ul class="skill-card__list" role="list">
+          <li>Java</li>
+          <li>Python</li>
+          <li>JavaScript</li>
+          <li>SQL</li>
+          <li>C</li>
+        </ul>
+      </article>
+
+      <article class="skill-card" data-reveal="card" data-reveal-index="1">
+        <h3 class="skill-card__title">Frontend</h3>
+        <ul class="skill-card__list" role="list">
+          <li>HTML</li>
+          <li>CSS</li>
+        </ul>
+      </article>
+
+      <article class="skill-card" data-reveal="card" data-reveal-index="2">
+        <h3 class="skill-card__title">Backend</h3>
+        <ul class="skill-card__list" role="list">
+          <li>Flask</li>
+          <li>Firebase</li>
+        </ul>
+      </article>
+
+      <article class="skill-card" data-reveal="card" data-reveal-index="3">
+        <h3 class="skill-card__title">AI / ML</h3>
+        <ul class="skill-card__list" role="list">
+          <li>Scikit-learn</li>
+          <li>NumPy</li>
+          <li>Pandas</li>
+          <li>Matplotlib</li>
+          <li>Gemini API</li>
+        </ul>
+      </article>
+
+      <article class="skill-card" data-reveal="card" data-reveal-index="4">
+        <h3 class="skill-card__title">Databases</h3>
+        <ul class="skill-card__list" role="list">
+          <li>MongoDB</li>
+        </ul>
+      </article>
+
+      <article class="skill-card" data-reveal="card" data-reveal-index="5">
+        <h3 class="skill-card__title">Tools</h3>
+        <ul class="skill-card__list" role="list">
+          <li>Git</li>
+          <li>GitHub</li>
+          <li>VS Code</li>
+          <li>Jupyter Notebook</li>
+          <li>Wireshark</li>
+        </ul>
+      </article>
+
+      <article class="skill-card" data-reveal="card" data-reveal-index="6">
+        <h3 class="skill-card__title">Core Concepts</h3>
+        <ul class="skill-card__list" role="list">
+          <li>Artificial Intelligence</li>
+          <li>Data Science</li>
+          <li>Machine Learning</li>
+          <li>Generative AI</li>
+          <li>Prompt Engineering</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+<!-- ===================================================== -->
+<!-- PROJECTS -->
+<!-- ===================================================== -->
+
+<section class="projects" id="projects" data-scroll-section="projects" aria-labelledby="projects-title">
+  <div class="projects__container">
+
+    <div class="projects__header">
+      <span class="projects__eyebrow" data-reveal="fade">Projects</span>
+      <h2 class="projects__title" id="projects-title" data-reveal="heading">Academic projects.</h2>
+    </div>
+
+    <div class="projects__list">
+
+      <article class="project-card" data-reveal="card" data-reveal-index="0">
+        <div class="project-card__content">
+          <span class="project-card__index">01</span>
+          <h3 class="project-card__title">AI Career Success Advisor</h3>
+          <p class="project-card__description">
+            Built an AI-powered career guidance platform predicting employability score, placement
+            probability, and career paths. Developed a secure full-stack web app with Firebase
+            Authentication, interactive dashboards, and real-time AI-powered insights. Integrated
+            Google Gemini AI to deliver personalized career roadmaps, skill-gap analysis, and interview
+            preparation strategies.
+          </p>
+          <ul class="project-card__tech" role="list">
+            <li>Flask</li>
+            <li>Python</li>
+            <li>Scikit-learn</li>
+            <li>Firebase</li>
+            <li>Gemini AI</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </div>
+
+        <div class="project-card__image">
+          <img
+            src="assets/images/project-ai-career-advisor.jpg"
+            alt="AI Career Success Advisor project preview"
+            loading="lazy"
+          >
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+<!-- ===================================================== -->
+<!-- EXPERIENCE -->
+<!-- ===================================================== -->
+
+<section class="experience" id="experience" data-scroll-section="experience" aria-labelledby="experience-title">
+  <div class="experience__container">
+
+    <div class="experience__header">
+      <span class="experience__eyebrow" data-reveal="fade">Experience</span>
+      <h2 class="experience__title" id="experience-title" data-reveal="heading">Where I've worked and studied.</h2>
+    </div>
+
+    <div class="experience__timeline" data-experience-group="professional">
+      <h3>Professional &amp; Virtual Experience</h3>
+
+      <div class="experience-item" data-reveal="fade" data-reveal-index="0">
+        <div class="experience-item__meta">
+          <span class="experience-item__year">June 2026 — Present</span>
+        </div>
+        <div class="experience-item__content">
+          <h4 class="experience-item__role">Research Intern</h4>
+          <span class="experience-item__company">Defence Research and Development Organization (DRDO–SSPL)</span>
+          <p class="experience-item__description">
+            Researched deep learning-based passive missile detection and warning systems using YOLOv5
+            for real-time aerial object detection; worked with Python, PyTorch, and OpenCV on object
+            detection pipelines, dataset preprocessing, and model evaluation.
+          </p>
+        </div>
+      </div>
+
+      <div class="experience-item" data-reveal="fade" data-reveal-index="1">
+        <div class="experience-item__meta">
+          <span class="experience-item__year">Virtual Experience</span>
+        </div>
+        <div class="experience-item__content">
+          <h4 class="experience-item__role">Job Simulation</h4>
+          <span class="experience-item__company">BCG GenAI Job Simulation</span>
+          <p class="experience-item__description">
+            Analysed 10-K data using Python &amp; Pandas and developed a Flask-based AI financial chatbot.
+          </p>
+        </div>
+      </div>
+
+      <div class="experience-item" data-reveal="fade" data-reveal-index="2">
+        <div class="experience-item__meta">
+          <span class="experience-item__year">Virtual Experience</span>
+        </div>
+        <div class="experience-item__content">
+          <h4 class="experience-item__role">Job Simulation</h4>
+          <span class="experience-item__company">Deloitte Data Analytics Job Simulation</span>
+          <p class="experience-item__description">
+            Performed data analysis and generated business insights for decision-making.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="experience__timeline" data-experience-group="education">
+      <h3>Education</h3>
+
+      <div class="experience-item" data-reveal="fade" data-reveal-index="0">
+        <div class="experience-item__meta">
+          <span class="experience-item__year">2024 — 2028</span>
+        </div>
+        <div class="experience-item__content">
+          <h4 class="experience-item__role">B.Tech, Artificial Intelligence &amp; Data Science</h4>
+          <span class="experience-item__company">Vivekananda Institute of Professional Studies (GGSIPU)</span>
+          <p class="experience-item__description">CGPA: 8.64</p>
+        </div>
+      </div>
+
+      <div class="experience-item" data-reveal="fade" data-reveal-index="1">
+        <div class="experience-item__meta">
+          <span class="experience-item__year">2024</span>
+        </div>
+        <div class="experience-item__content">
+          <h4 class="experience-item__role">CBSE Class XII</h4>
+          <span class="experience-item__company">Hansraj Model School</span>
+          <p class="experience-item__description">87.6%</p>
+        </div>
+      </div>
+
+      <div class="experience-item" data-reveal="fade" data-reveal-index="2">
+        <div class="experience-item__meta">
+          <span class="experience-item__year">2022</span>
+        </div>
+        <div class="experience-item__content">
+          <h4 class="experience-item__role">CBSE Class X</h4>
+          <span class="experience-item__company">Hansraj Model School</span>
+          <p class="experience-item__description">92.0%</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="experience__timeline" data-experience-group="achievements">
+      <h3>Achievements, Certifications &amp; Activities</h3>
+
+      <div class="experience-item" data-reveal="fade" data-reveal-index="0">
+        <div class="experience-item__meta">
+          <span class="experience-item__year">Hackathons</span>
+        </div>
+        <div class="experience-item__content">
+          <p class="experience-item__description">
+            Participated in 15+ national-level hackathons across AI, Software Development, and Innovation;
+            achieved Top 10 at INNERVE 2026 (IGDTUW).
+          </p>
+        </div>
+      </div>
+
+      <div class="experience-item" data-reveal="fade" data-reveal-index="1">
+        <div class="experience-item__meta">
+          <span class="experience-item__year">Certification</span>
+        </div>
+        <div class="experience-item__content">
+          <p class="experience-item__description">
+            Introduction to Generative AI — Google Cloud &amp; Simplilearn
+          </p>
+        </div>
+      </div>
+
+      <div class="experience-item" data-reveal="fade" data-reveal-index="2">
+        <div class="experience-item__meta">
+          <span class="experience-item__year">Certification</span>
+        </div>
+        <div class="experience-item__content">
+          <p class="experience-item__description">
+            Introduction to Cybersecurity — Cisco Networking Academy
+          </p>
+        </div>
+      </div>
+
+      <div class="experience-item" data-reveal="fade" data-reveal-index="3">
+        <div class="experience-item__meta">
+          <span class="experience-item__year">Activity</span>
+        </div>
+        <div class="experience-item__content">
+          <p class="experience-item__description">
+            Member, ADVAIT — AI Club, VIPS
+          </p>
+        </div>
+      </div>
+
+      <div class="experience-item" data-reveal="fade" data-reveal-index="4">
+        <div class="experience-item__meta">
+          <span class="experience-item__year">Activity</span>
+        </div>
+        <div class="experience-item__content">
+          <p class="experience-item__description">
+            Member, EONICS — Electronics &amp; IoT Society, VIPS
+          </p>
+        </div>
+      </div>
+
+      <div class="experience-item" data-reveal="fade" data-reveal-index="5">
+        <div class="experience-item__meta">
+          <span class="experience-item__year">Activity</span>
+        </div>
+        <div class="experience-item__content">
+          <p class="experience-item__description">
+            Event Volunteer, Riwayat &amp; Abhivyakti, VIPS
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ===================================================== -->
+<!-- CONTACT -->
+<!-- ===================================================== -->
+
+<section class="contact" id="contact" data-scroll-section="contact" aria-labelledby="contact-title">
+  <div class="contact__container">
+
+    <div class="contact__content">
+      <span class="contact__eyebrow" data-reveal="fade">Contact</span>
+      <h2 class="contact__title" id="contact-title" data-reveal="heading">Let's connect.</h2>
+      <p class="contact__description" data-reveal="fade">
+        Feel free to reach out for opportunities, collaborations, or just to say hello.
+      </p>
+
+      <a
+        class="contact__button"
+        href="mailto:anshbanga4@gmail.com"
+        data-magnetic
+        data-cursor="hover"
+        data-reveal="fade"
+      >
+        anshbanga4@gmail.com
+      </a>
+    </div>
+
+    <div class="contact__links">
+      <!-- Add X (Twitter) profile URL if available -->
+      
+      <a
+        class="contact__link"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-cursor="hover"
+        data-magnetic
+        data-reveal="fade"
+        data-reveal-index="0"
+      >
+        X
+      </a>
+      <!-- Add LinkedIn profile URL -->
+      
+      <a
+        class="contact__link"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-cursor="hover"
+        data-magnetic
+        data-reveal="fade"
+        data-reveal-index="1"
+      >
+        LinkedIn
+      </a>
+      <!-- Add GitHub profile URL -->
+      
+      <a
+        class="contact__link"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-cursor="hover"
+        data-magnetic
+        data-reveal="fade"
+        data-reveal-index="2"
+      >
+        GitHub
+      </a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+  <!-- ===================================================== -->
+  <!-- FOOTER -->
+  <!-- ===================================================== -->
+<footer class="footer" data-scroll-section="footer">
+  <div class="footer__container">
+    <p class="footer__copyright">© <span id="footerYear" data-footer-year>2026</span> Ansh Banga. All rights reserved.</p>
+
+    <a
+      class="footer__back-to-top"
+      id="backToTop"
+      href="#hero"
+      data-back-to-top
+      data-magnetic
+      data-cursor="hover"
+      aria-label="Back to top"
+    >
+      Back to Top
+    </a>
+  </div>
+</footer>
+
+  <script type="module" src="/src/main.js"></script>
 </html>
